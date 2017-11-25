@@ -34,3 +34,23 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
+
+$(document).ready(function() {
+//Preloader
+$(window).load(function() {
+preloaderFadeOutTime = 500;
+function hidePreloader() {
+var preloader = $('.spinner-wrapper');
+preloader.fadeOut(preloaderFadeOutTime);
+}
+hidePreloader();
+});
+});
+
+$(function(){ // this replaces document.ready
+  $(window).on("load", function(){
+    $('.spinner-wrapper').fadeOut('slow', function() {
+      $(this).remove();
+    });
+  });
+}); 
